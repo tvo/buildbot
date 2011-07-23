@@ -32,7 +32,7 @@ class Dependent(base.BaseScheduler):
         self._buildset_completion_subscr = None
 
         # the subscription lock makes sure that we're done inserting a
-        # subcription into the DB before registering that the buildset is
+        # subscription into the DB before registering that the buildset is
         # complete.
         self._subscription_lock = defer.DeferredLock()
 
@@ -54,7 +54,7 @@ class Dependent(base.BaseScheduler):
 
     @util.deferredLocked('_subscription_lock')
     def _buildsetAdded(self, bsid=None, properties=None, **kwargs):
-        # check if this was submitetted by our upstream by checking the
+        # check if this was submitted by our upstream by checking the
         # scheduler property
         submitter = properties.get('scheduler', (None, None))[0]
         if submitter != self.upstream_name:
